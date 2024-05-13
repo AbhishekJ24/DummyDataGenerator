@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const dummySchema = new mongoose.schema({
+const dummySchema = new mongoose.Schema({
     name: String,
     salary: Number,
     language: String,

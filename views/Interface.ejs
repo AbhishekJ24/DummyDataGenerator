@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .btns {
+            height: 100px;
+            font-size: 30px;
+            padding: 10px;
+            border: none;
+            background-color: rgba(248, 248, 248, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        .btns::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: red;
+            transition: width 0.5s linear;
+        }
+        .btns:hover::after {
+            width: 100%;
+        }
+        .btn-cont {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn-cont">
+        <button onclick=generate() class="btns">Generate Data in Collection</button>
+        <button onclick=del() class="btns">Clear Collection</button>
+    </div>
+</body>
+<script>
+    async function generate(){
+        await fetch("/generate")
+        console.log("GENERATED")
+    }
+    async function del(){
+        await fetch("/delete")
+        console.log("DELETE")
+    }
+</script>
+
+</html>
